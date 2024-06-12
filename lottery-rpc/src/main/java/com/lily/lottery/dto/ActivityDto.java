@@ -1,19 +1,15 @@
-package com.lily.lottery.infrastructure.dao.po;
-
+package com.lily.lottery.dto;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by lily via on 2024/6/12 12:02
- * 活动基础信息表
+ * Created by lily via on 2024/6/12 12:33
  */
 @Data
-public class Activity {
-
-    // 自增ID
-    private Long id;
+public class ActivityDto implements Serializable {
 
     // 活动ID
     private Long activityId;
@@ -38,14 +34,5 @@ public class Activity {
 
     // 活动状态：编辑、提审、撤审、通过、运行、拒绝、关闭、开启
     private Integer state;
-
-    // 创建人
-    private String creator;
-
-    // 创建时间
-    private Date createTime;
-
-    // 修改时间
-    private Date updateTime;
 
 }
