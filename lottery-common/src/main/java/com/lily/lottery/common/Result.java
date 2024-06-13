@@ -15,7 +15,7 @@ public class Result implements Serializable {
     public Result() {
     }
 
-    private Result(String code, String info) {
+    public Result(String code, String info) {
         this.code = code;
         this.info = info;
     }

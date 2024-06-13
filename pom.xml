@@ -25,6 +25,11 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
+  <properties>
+    <!-- Base -->
+    <jdk.version>1.8</jdk.version>
+    <sourceEncoding>UTF-8</sourceEncoding>
+  </properties>
 
 <!--  项目依赖-->
   <dependencies>
@@ -90,12 +95,7 @@
 <!--      <version>1.2.58</version>-->
 <!--    </dependency>-->
 
-<!--    lombok-->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.12</version>
-    </dependency>
+
 
 <!--    <dependency>-->
 <!--      <groupId>dom4j</groupId>-->
@@ -121,51 +121,59 @@
 
 <!--  项目打包-->
   <build>
-    <finalName>Lottery-lily</finalName>
     <plugins>
-      <!-- 编译plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.20</version>
+        <configuration>
+          <skipTests>true</skipTests>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>${jdk.version}</source>
-          <target>${jdk.version}</target>
-          <compilerVersion>1.8</compilerVersion>
+          <source>8</source>
+          <target>8</target>
         </configuration>
       </plugin>
     </plugins>
   </build>
 
+
   <!--  版本属性-->
-  <properties>
-    <!-- Base -->
-    <jdk.version>1.8</jdk.version>
-    <sourceEncoding>UTF-8</sourceEncoding>
-    <!-- Spring -->
-    <spring.version>4.3.24.RELEASE</spring.version>
-    <servlet-api.version>2.5</servlet-api.version>
-    <spring.redis.version>1.8.4.RELEASE</spring.redis.version>
-    <!-- DB：mysql、mybatis-->
-    <mysql.version>5.1.20</mysql.version>
-    <mybatis.version>3.3.0</mybatis.version>
-    <mybatis_spring.version>1.2.3</mybatis_spring.version>
-    <!-- JSON -->
-    <fastjson.version>1.2.60</fastjson.version>
-    <jackson.version>2.5.4</jackson.version>
-    <!-- Junit -->
-    <junit.version>4.12</junit.version>
-    <!-- Common -->
-    <commons-dbcp2.version>2.6.0</commons-dbcp2.version>
-    <commons-lang3.version>3.8.1</commons-lang3.version>
-    <!-- 日志 -->
-    <slf4j.version>1.7.7</slf4j.version>
-    <logback.version>1.0.9</logback.version>
-    <!-- 其他服务 -->
-    <dubbo.version>2.6.6</dubbo.version>
-    <zookeeper.version>3.4.14</zookeeper.version>
-    <netty.version>4.1.36.Final</netty.version>
-    <redis.version>2.9.0</redis.version>
-    <scheduler.version>2.3.2</scheduler.version>
-  </properties>
+<!--  <properties>-->
+<!--    &lt;!&ndash; Base &ndash;&gt;-->
+<!--    <jdk.version>1.8</jdk.version>-->
+<!--    <sourceEncoding>UTF-8</sourceEncoding>-->
+<!--    &lt;!&ndash; Spring &ndash;&gt;-->
+<!--    <spring.version>4.3.24.RELEASE</spring.version>-->
+<!--    <servlet-api.version>2.5</servlet-api.version>-->
+<!--    <spring.redis.version>1.8.4.RELEASE</spring.redis.version>-->
+<!--    &lt;!&ndash; DB：mysql、mybatis&ndash;&gt;-->
+<!--    <mysql.version>5.1.20</mysql.version>-->
+<!--    <mybatis.version>3.3.0</mybatis.version>-->
+<!--    <mybatis_spring.version>1.2.3</mybatis_spring.version>-->
+<!--    &lt;!&ndash; JSON &ndash;&gt;-->
+<!--    <fastjson.version>1.2.60</fastjson.version>-->
+<!--    <jackson.version>2.5.4</jackson.version>-->
+<!--    &lt;!&ndash; Junit &ndash;&gt;-->
+<!--    <junit.version>4.12</junit.version>-->
+<!--    &lt;!&ndash; Common &ndash;&gt;-->
+<!--    <commons-dbcp2.version>2.6.0</commons-dbcp2.version>-->
+<!--    <commons-lang3.version>3.8.1</commons-lang3.version>-->
+<!--    &lt;!&ndash; 日志 &ndash;&gt;-->
+<!--    <slf4j.version>1.7.7</slf4j.version>-->
+<!--    <logback.version>1.0.9</logback.version>-->
+<!--    &lt;!&ndash; 其他服务 &ndash;&gt;-->
+<!--    <dubbo.version>2.6.6</dubbo.version>-->
+<!--    <zookeeper.version>3.4.14</zookeeper.version>-->
+<!--    <netty.version>4.1.36.Final</netty.version>-->
+<!--    <redis.version>2.9.0</redis.version>-->
+<!--    <scheduler.version>2.3.2</scheduler.version>-->
+<!--    &lt;!&ndash;    lombok&ndash;&gt;-->
+<!--    <lombok.version>1.18.28</lombok.version>-->
+<!--  </properties>-->
 
 </project>

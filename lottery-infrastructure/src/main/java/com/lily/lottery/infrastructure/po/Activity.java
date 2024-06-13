@@ -1,8 +1,9 @@
-package com.lily.lottery.infrastructure.dao.po;
+package com.lily.lottery.infrastructure.po;
 
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
