@@ -11,6 +11,7 @@
          #{stockCount}, #{takeCount}, #{state}, #{creator}, now(), now())
     </insert>
 
+
     <select id="queryActivityById" parameterType="java.lang.Long" resultType="com.lily.lottery.infrastructure.po.Activity">
         SELECT activityId, activityName, activityDesc,beginDateTime, endDateTime,
         stockCount, takeCount, state, creator, createTime, updateTime
