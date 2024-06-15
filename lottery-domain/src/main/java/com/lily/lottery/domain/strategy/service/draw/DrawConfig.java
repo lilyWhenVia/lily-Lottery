@@ -4,10 +4,8 @@ import com.lily.lottery.domain.strategy.service.algorithm.IDrawAlgorithm;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 
 /**
  * Created by lily via on 2024/6/15 15:00
@@ -15,10 +13,11 @@ import java.util.concurrent.ConcurrentMap;
  * 决定抽奖是按照必中奖方式抽奖还是按照概率抽奖
  */
 public class DrawConfig {
-    @Resource
+
+    @Resource(name = "defaultRandomDrawAlgorithm")
     private IDrawAlgorithm defaultDrawAlgorithm;
 
-    @Resource
+    @Resource(name = "singleRateRandomDrawAlgorithm")
     private IDrawAlgorithm singleRateDrawAlgorithm;
 
     protected static Map<Integer, IDrawAlgorithm> drawAlgorithmMap = new ConcurrentHashMap<>();

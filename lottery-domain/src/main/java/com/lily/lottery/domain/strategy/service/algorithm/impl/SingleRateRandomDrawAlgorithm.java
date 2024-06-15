@@ -1,6 +1,7 @@
 package com.lily.lottery.domain.strategy.service.algorithm.impl;
 
 import com.lily.lottery.domain.strategy.service.algorithm.BaseAlgorithm;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.security.SecureRandom;
@@ -12,7 +13,8 @@ import java.util.List;
  * 策略模式与工厂模式结合
  * 【推荐】单项随机概率抽奖: 抽到一个已经排掉的奖品则未中奖
  */
-@Component("singleRateRandomDrawAlgorithm")
+@Component("defaultRandomDrawAlgorithm")
+//@Primary
 public class SingleRateRandomDrawAlgorithm extends BaseAlgorithm {
 
     /**

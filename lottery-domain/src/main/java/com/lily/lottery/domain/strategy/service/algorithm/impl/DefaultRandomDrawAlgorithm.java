@@ -14,7 +14,7 @@ import java.util.List;
  * 默认抽奖算法实现
  * 策略模式与工厂模式结合
  */
-@Component("defaultRandomDrawAlgorithm")
+@Component("singleRateRandomDrawAlgorithm")
 public class DefaultRandomDrawAlgorithm extends BaseAlgorithm {
     //
     /**

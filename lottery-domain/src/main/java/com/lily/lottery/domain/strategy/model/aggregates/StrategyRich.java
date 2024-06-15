@@ -6,13 +6,18 @@ package com.lily.lottery.domain.strategy.model.aggregates;
 
 import com.lily.lottery.infrastructure.po.Strategy;
 import com.lily.lottery.infrastructure.po.StrategyDetail;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 /**
  * 聚合策略，策略明细以及策略ID的聚合类
  */
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class StrategyRich {
 
 
@@ -23,36 +28,4 @@ public class StrategyRich {
     // 策略明细
     private List<StrategyDetail> strategyDetailList;
 
-    public StrategyRich() {
-    }
-
-    public StrategyRich(Long strategyId, Strategy strategy, List<StrategyDetail> strategyDetailList) {
-        this.strategyId = strategyId;
-        this.strategy = strategy;
-        this.strategyDetailList = strategyDetailList;
-    }
-
-    public Long getStrategyId() {
-        return strategyId;
-    }
-
-    public void setStrategyId(Long strategyId) {
-        this.strategyId = strategyId;
-    }
-
-    public Strategy getStrategy() {
-        return strategy;
-    }
-
-    public void setStrategy(Strategy strategy) {
-        this.strategy = strategy;
-    }
-
-    public List<StrategyDetail> getStrategyDetailList() {
-        return strategyDetailList;
-    }
-
-    public void setStrategyDetailList(List<StrategyDetail> strategyDetailList) {
-        this.strategyDetailList = strategyDetailList;
-    }
 }
