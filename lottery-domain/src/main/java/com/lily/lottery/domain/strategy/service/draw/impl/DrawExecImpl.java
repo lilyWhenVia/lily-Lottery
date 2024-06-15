@@ -50,6 +50,7 @@ public class DrawExecImpl extends DrawBase implements IDrawExec {
         // 根据策略方式抽奖, 根据mode从config中初始并封装好的的map中获取对应的算法实例
         IDrawAlgorithm drawAlgorithm = drawAlgorithmMap.get(strategy.getStrategyMode());
         // 根据以及获取的具体的抽奖方法进行抽奖
+        // 此时排除奖品列表为空 todo：逻辑补全
         String awardId = drawAlgorithm.randomDraw(req.getStrategyId(), new ArrayList<>());
         // 根据奖品Id从数据库获取奖品信息
         Award award = strategyRepository.queryAwardInfo(awardId);
