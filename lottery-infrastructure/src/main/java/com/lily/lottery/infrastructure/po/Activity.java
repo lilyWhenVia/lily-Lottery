@@ -1,7 +1,9 @@
 package com.lily.lottery.infrastructure.po;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,6 +13,8 @@ import java.util.Date;
  * 活动基础信息表
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Activity {
 
     // 自增ID

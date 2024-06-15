@@ -13,15 +13,12 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class DrawReq {
 
-        private Long strategyId;
+    private String uId;
 
-        private String uId;
+    private Long strategyId;
 
-        public DrawReq(Long strategyId, String uId) {
-            this.strategyId = strategyId;
-            this.uId = uId;
-        }
 
 }
