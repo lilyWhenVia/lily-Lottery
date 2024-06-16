@@ -1,7 +1,6 @@
 package com.lily.lottery.domain.strategy.service.algorithm.impl;
 
 import com.lily.lottery.domain.strategy.service.algorithm.BaseAlgorithm;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.security.SecureRandom;
@@ -11,9 +10,12 @@ import java.util.List;
  * Created by lily via on 2024/6/15 14:59
  * 单次抽奖随机抽奖算法实现
  * 策略模式与工厂模式结合
- * 【推荐】单项随机概率抽奖: 抽到一个已经排掉的奖品则未中奖
+ *
+ * 场景A20%、B30%、C50%
+ * 总体概率：如果A奖品抽空后，B和C奖品的概率按照 3:5 均分，
+ * 相当于B奖品中奖概率由 0.3 升为 0.375
  */
-@Component("defaultRandomDrawAlgorithm")
+@Component("singleRateRandomDrawAlgorithm")
 //@Primary
 public class SingleRateRandomDrawAlgorithm extends BaseAlgorithm {
 
