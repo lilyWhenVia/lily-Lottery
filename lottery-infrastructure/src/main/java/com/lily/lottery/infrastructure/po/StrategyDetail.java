@@ -5,7 +5,7 @@ import lombok.*;
 import java.math.BigDecimal;
 
 /**
- * 策略明细
+ * 抽奖细节表
  */
 @Data
 @AllArgsConstructor
@@ -26,6 +26,9 @@ public class StrategyDetail {
 
     // 中奖概率
     private BigDecimal awardRate;
+
+    // 奖品库存（实际的奖品剩余数量）
+    private String awardSurplusCount;
 
     // 创建时间
     private String createTime;

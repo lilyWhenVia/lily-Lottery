@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 /**
- * 聚合策略，策略明细以及策略ID的聚合类
+ * 抽奖详情与策略聚合类
  */
 @Data
 @AllArgsConstructor

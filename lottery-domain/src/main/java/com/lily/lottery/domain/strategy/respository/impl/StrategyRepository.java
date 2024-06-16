@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -33,7 +34,7 @@ public class StrategyRepository implements IStrategyRepository {
     private IAwardDao awardDao;
 
     /**
-     * 查询聚合策略信息
+     * 查询抽奖策略与抽奖详情
      * @param strategyId 策略ID
      * @return 策略信息
      */
@@ -52,5 +53,33 @@ public class StrategyRepository implements IStrategyRepository {
     @Override
     public Award queryAwardInfo(String awardId) {
         return awardDao.queryAwardInfo(awardId);
+    }
+
+    /**
+     * @description: 查询没有库存的商品列表
+            * @param: strategyId
+            * @return:
+            * @author lily via
+            * @date: 2024/6/16 17:27
+     */
+    @Override
+    public List<String> queryNoStockStrategyAwardList(Long strategyId) {
+        return strategyDetailDao.queryNoStockStrategyAwardList(strategyId);
+    }
+
+    /**
+     * 扣减一个库存
+     * @param strategyId 策略ID
+     * @param awardId    奖品ID
+     * @return
+     */
+    @Override
+    public boolean deductStock(Long strategyId, String awardId) {
+        StrategyDetail req = new StrategyDetail();
+        req.setStrategyId(strategyId);
+        req.setAwardId(awardId);
+        // 构建扣减库存请求
+        int count = strategyDetailDao.deductStock(req);
+        return count == 1;
     }
 }

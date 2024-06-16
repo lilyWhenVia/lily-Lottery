@@ -4,7 +4,12 @@ import lombok.*;
 
 import java.util.Date;
 
-
+/**
+ * @description: 抽奖策略规定表
+ * @author Lily Via
+ * @date 2024/6/16 17:21
+ * @version 1.0
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
