@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Created by lily via on 2024/6/14 20:25
- * 策略细节表数据库操作
+ * 抽奖详情数据库操作
  */
 @Mapper
 public interface IStrategyDetailDao {

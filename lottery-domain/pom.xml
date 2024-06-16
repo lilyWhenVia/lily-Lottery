@@ -18,10 +18,22 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.58</version>
+        </dependency>
+
 <!--        infrastructure-->
         <dependency>
             <groupId>com.lily</groupId>
             <artifactId>lottery-infrastructure</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+<!--        common-->
+        <dependency>
+            <groupId>com.lily</groupId>
+            <artifactId>lottery-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
