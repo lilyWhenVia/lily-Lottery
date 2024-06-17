@@ -38,4 +38,10 @@ public class DrawAwardInfo {
         this.awardName = awardName;
     }
 
+    public DrawAwardInfo(String awardId, String awardName, Integer awardType){
+        this.awardId = awardId;
+        this.awardName = awardName;
+        this.awardType = awardType;
+    }
+
 }
