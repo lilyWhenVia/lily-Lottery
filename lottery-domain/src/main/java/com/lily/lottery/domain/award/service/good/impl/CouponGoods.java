@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * Created by lily via on 2024/6/17 14:17
  * 优惠券商品发货服务实现类
  */
-@Component
+@Component("CouponGoods")
 @Slf4j
 public class CouponGoods extends DistributionBase implements IDistributionGoods {
 

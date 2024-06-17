@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * Created by lily via on 2024/6/17 14:17
  * 文字描述发货服务实现类
  */
-@Component
+@Component("DescGoods")
 @Slf4j
 public class DescGoods extends DistributionBase implements IDistributionGoods {
     /**

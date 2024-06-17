@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * Created by lily via on 2024/6/17 14:17
  * 兑换代码商品发货服务实现类
  */
-@Component
+@Component("RedeemCodeGoods")
 @Slf4j
 public class RedeemCodeGoods extends DistributionBase implements IDistributionGoods {
 
