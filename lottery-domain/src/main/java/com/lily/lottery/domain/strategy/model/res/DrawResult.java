@@ -4,7 +4,7 @@ package com.lily.lottery.domain.strategy.model.res;
  * Created by lily via on 2024/6/14 20:50
  */
 
-import com.lily.lottery.common.Constants;
+import com.lily.lottery.common.DrawConstants;
 import com.lily.lottery.domain.strategy.model.vo.DrawAwardInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +27,7 @@ public class DrawResult {
     /**
      * 中奖状态：0未中奖、1已中奖、2兜底奖 Constants.DrawState
      */
-    private Integer drawState = Constants.DrawState.FAIL.getCode();
+    private Integer drawState = DrawConstants.DrawState.FAIL.getCode();
 
     /**
      * 中奖奖品信息

@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 /**
  * Created by lily via on 2024/6/12 12:36
- * 通用常量
+ * 抽奖模块通用常量
  */
-public class Constants implements Serializable {
+public class DrawConstants implements Serializable {
 
     public enum ResponseCode {
         SUCCESS("0000", "成功"),

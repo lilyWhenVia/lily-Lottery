@@ -1,8 +1,7 @@
 package com.lily.lottery.interfaces;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.lily.lottery.IActivityBooth;
-import com.lily.lottery.common.Constants;
+import com.lily.lottery.common.DrawConstants;
 import com.lily.lottery.common.Result;
 import com.lily.lottery.dto.ActivityDto;
 import com.lily.lottery.infrastructure.dao.IActivityDao;
@@ -35,6 +34,6 @@ public class ActivityBooth implements IActivityBooth {
         activityDto.setStockCount(activity.getStockCount());
         activityDto.setTakeCount(activity.getTakeCount());
 
-        return new ActivityRes(new Result(Constants.ResponseCode.SUCCESS.getCode(), Constants.ResponseCode.SUCCESS.getInfo()), activityDto);
+        return new ActivityRes(new Result(DrawConstants.ResponseCode.SUCCESS.getCode(), DrawConstants.ResponseCode.SUCCESS.getInfo()), activityDto);
     }
 }

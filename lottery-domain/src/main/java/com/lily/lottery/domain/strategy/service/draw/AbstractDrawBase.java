@@ -1,6 +1,6 @@
 package com.lily.lottery.domain.strategy.service.draw;
 
-import com.lily.lottery.common.Constants;
+import com.lily.lottery.common.DrawConstants;
 import com.lily.lottery.domain.strategy.model.aggregates.StrategyRich;
 import com.lily.lottery.domain.strategy.model.req.DrawReq;
 import com.lily.lottery.domain.strategy.model.res.DrawResult;
@@ -11,7 +11,6 @@ import com.lily.lottery.infrastructure.po.Award;
 import com.lily.lottery.infrastructure.po.Strategy;
 import com.lily.lottery.infrastructure.po.StrategyDetail;
 import lombok.extern.slf4j.Slf4j;
-import org.yaml.snakeyaml.scanner.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +70,7 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
          * 如果不是必中奖模式（单项概率），不需要重新初始化抽奖概率数据
          * 1:单项概率、2:总体概率
          */
-        if ( !Constants.StrategyMode.SINGLE.getCode().equals(strategyMode)) {
+        if ( !DrawConstants.StrategyMode.SINGLE.getCode().equals(strategyMode)) {
             return;
         }
         /*
@@ -124,14 +123,14 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
         // 上层未中奖
         if (awardId == null){
             log.info("执行策略抽奖完成【未中奖】，用户：{} 策略ID：{}", uId, strategyId);
-            return new DrawResult(uId, strategyId, Constants.DrawState.FAIL.getCode());
+            return new DrawResult(uId, strategyId, DrawConstants.DrawState.FAIL.getCode());
 
         }
         // 封装奖品信息
         Award award = super.queryAwardInfoByAwardId(awardId);
         DrawAwardInfo drawAwardInfo = new DrawAwardInfo(award.getAwardId(), award.getAwardName());
         log.info("执行策略抽奖完成【已中奖】，用户：{} 策略ID：{} 奖品ID：{} 奖品名称：{}", uId, strategyId, awardId, award.getAwardName());
-        return new DrawResult(uId, strategyId, Constants.DrawState.SUCCESS.getCode(), drawAwardInfo);
+        return new DrawResult(uId, strategyId, DrawConstants.DrawState.SUCCESS.getCode(), drawAwardInfo);
 
     }
 }
