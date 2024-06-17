@@ -24,8 +24,8 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
 
     /**
      * 定义通用的抽奖流程
-     * @param req
-     * @return
+     * @param req 抽奖请求
+     * @return 抽奖结果
      */
     @Override
     public DrawResult doDrawExec(DrawReq req) {
@@ -67,22 +67,25 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
      */
     private void checkAndInitRateData(Long strategyId, Integer strategyMode, List<StrategyDetail> strategyDetailList) {
         /*
-         * 如果不是必中奖模式（单项概率），不需要重新初始化抽奖概率数据
-         * 1:单项概率、2:总体概率
-         */
-        if ( !DrawConstants.StrategyMode.SINGLE.getCode().equals(strategyMode)) {
-            return;
-        }
-        /*
-         *根据抽奖模式获取对应实现抽奖算法
+         *根据抽奖模式获取对应抽奖算法
          */
         IDrawAlgorithm drawAlgorithm = drawAlgorithmMap.get(strategyMode);
-
         /*
          * 判断是否已经初始化过抽奖概率元组
          * 如果已经初始化过抽奖概率元组，不需要重新初始化
          */
         boolean existRateTuple = drawAlgorithm.isExistRateTuple(strategyId);
+        /*
+         * 如果概率元组已存在且不是必中奖模式（单项概率），不需要重新初始化抽奖概率数据
+         * 1:单项概率、2:总体概率
+         */
+        if (existRateTuple && !DrawConstants.StrategyMode.SINGLE.getCode().equals(strategyMode)) {
+            return;
+        }
+
+        /*
+          整体概率模式，未初始化概率元组需要重新初始化
+         */
         if (existRateTuple) {
             return;
         }
@@ -128,7 +131,7 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
         }
         // 封装奖品信息
         Award award = super.queryAwardInfoByAwardId(awardId);
-        DrawAwardInfo drawAwardInfo = new DrawAwardInfo(award.getAwardId(), award.getAwardName());
+        DrawAwardInfo drawAwardInfo = new DrawAwardInfo(award.getAwardId(), award.getAwardType(), award.getAwardName(), award.getAwardContent());
         log.info("执行策略抽奖完成【已中奖】，用户：{} 策略ID：{} 奖品ID：{} 奖品名称：{}", uId, strategyId, awardId, award.getAwardName());
         return new DrawResult(uId, strategyId, DrawConstants.DrawState.SUCCESS.getCode(), drawAwardInfo);
 
