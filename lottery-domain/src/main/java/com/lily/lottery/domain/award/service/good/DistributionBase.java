@@ -18,7 +18,7 @@ public class DistributionBase {
      * @param awardStatus 奖品状态
      * @param awardStateInfo 奖品状态信息
      */
-    protected void updateUserAwardStatus(String userId, String orderId, String awardId, String awardStatus, String awardStateInfo) {
+    protected void updateUserAwardStatus(String userId, String orderId, String awardId, Integer awardStatus, String awardStateInfo) {
         // todo 每个用户抽奖新建一张用户抽奖表。更新用户个人抽奖记录表中奖品发放状态
         log.info("更新用户获奖状态信息, userId: {}, orderId: {}, awardId: {}, awardStatus: {}, awardStateInfo: {}", userId, orderId, awardId, awardStatus, awardStateInfo);
     }
