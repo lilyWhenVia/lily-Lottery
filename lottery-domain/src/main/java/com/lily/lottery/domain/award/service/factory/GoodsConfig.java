@@ -1,5 +1,6 @@
 package com.lily.lottery.domain.award.service.factory;
 
+import com.lily.lottery.common.AwardConstants;
 import com.lily.lottery.domain.award.service.good.IDistributionGoods;
 
 import javax.annotation.PostConstruct;
@@ -31,9 +32,9 @@ public class GoodsConfig {
     public static Map<String, IDistributionGoods> goodsMap = new ConcurrentHashMap<>();
     @PostConstruct
     public void init(){
-        goodsMap.put("couponGoods", couponGoods);
-        goodsMap.put("descGoods", descGoods);
-        goodsMap.put("physicalGoods", physicalGoods);
-        goodsMap.put("redeemGoods", redeemGoods);
+        goodsMap.put(AwardConstants.AwardType.CouponGoods.getInfo(), couponGoods);
+        goodsMap.put(AwardConstants.AwardType.DESC.getInfo(), descGoods);
+        goodsMap.put(AwardConstants.AwardType.PhysicalGoods.getInfo(), physicalGoods);
+        goodsMap.put(AwardConstants.AwardType.RedeemCodeGoods.getInfo(), redeemGoods);
     }
 }
