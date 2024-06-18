@@ -119,7 +119,7 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
      * @param: uId
      * @param: strategyId
      * @param: awardId
-     * @return: com.lily.lottery.domain.strategy.model.res.DrawResult
+     * @return: com.lily.lottery.domain.strategy.model.aggregates.DrawResult
      * @date: 2024/6/16 16:40
      */
     private DrawResult buildDrawResult(String uId, Long strategyId, String awardId){
