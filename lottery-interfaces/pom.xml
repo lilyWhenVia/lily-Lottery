@@ -68,9 +68,18 @@
             <artifactId>lottery-application</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+<!--        rpc接口-->
         <dependency>
             <groupId>com.lily</groupId>
             <artifactId>lottery-rpc</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+<!--        domain模块-->
+        <dependency>
+            <groupId>com.lily</groupId>
+            <artifactId>lottery-domain</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

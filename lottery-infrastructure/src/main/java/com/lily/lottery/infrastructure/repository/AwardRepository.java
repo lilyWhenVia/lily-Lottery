@@ -1,4 +1,4 @@
-package com.lily.lottery.domain.award.repository.impl;
+package com.lily.lottery.infrastructure.repository;
 
 import com.lily.lottery.domain.award.repository.IAwardRepository;
 

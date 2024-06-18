@@ -1,4 +1,4 @@
-package com.lily.lottery.domain.strategy.respository.impl;
+package com.lily.lottery.infrastructure.repository;
 
 import com.lily.lottery.domain.strategy.model.aggregates.StrategyRich;
 import com.lily.lottery.domain.strategy.respository.IStrategyRepository;
@@ -9,15 +9,14 @@ import com.lily.lottery.infrastructure.po.Award;
 import com.lily.lottery.infrastructure.po.Strategy;
 import com.lily.lottery.infrastructure.po.StrategyDetail;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by lily via on 2024/6/14 20:58
  */
+
 /**
  * 策略仓储查询实现类
  */

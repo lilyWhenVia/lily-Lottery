@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lily.lottery.infrastructure.dao.IAwardDao">
+    <insert id="insertList" parameterType="java.util.List">
+        INSERT INTO award(awardId, awardType, awardName, awardContent, createTime, updateTime)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.awardId},
+            #{item.awardType},
+            #{item.awardName},
+            #{item.awardContent},
+            NOW(),
+            NOW()
+            )
+        </foreach>
+    </insert>
 
     <select id="queryAwardInfo" parameterType="java.lang.String" resultType="com.lily.lottery.infrastructure.po.Award">
         SELECT

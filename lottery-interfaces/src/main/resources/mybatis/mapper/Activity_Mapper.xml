@@ -11,6 +11,11 @@
          #{stockCount}, #{takeCount}, #{state}, #{creator}, now(), now())
     </insert>
 
+    <update id="alterState" parameterType="com.lily.lottery.domain.activity.model.vo.AlterStateVO">
+        UPDATE activity
+        SET state = #{afterState}
+        WHERE activityId = #{activityId} AND state = #{beforeState}
+    </update>
 
     <select id="queryActivityById" parameterType="java.lang.Long" resultType="com.lily.lottery.infrastructure.po.Activity">
         SELECT activityId, activityName, activityDesc,beginDateTime, endDateTime,

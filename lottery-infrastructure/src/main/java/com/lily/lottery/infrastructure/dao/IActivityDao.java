@@ -1,5 +1,6 @@
 package com.lily.lottery.infrastructure.dao;
 
+import com.lily.lottery.domain.activity.model.vo.AlterStateVO;
 import com.lily.lottery.infrastructure.po.Activity;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,5 +14,7 @@ public interface IActivityDao {
     void insert(Activity req);
 
     Activity queryActivityById(Long activityId);
+
+    int alterState(AlterStateVO alterStateVO);
 
 }
