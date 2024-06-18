@@ -2,6 +2,9 @@ package com.lily.lottery.domain.activity.service.stateflow;
 
 import com.lily.lottery.common.ActivityConstants;
 import com.lily.lottery.common.Result;
+import com.lily.lottery.domain.activity.repository.IActivityRepositoty;
+
+import javax.annotation.Resource;
 
 /**
  * Created by lily via on 2024/6/18 23:29
@@ -11,7 +14,14 @@ import com.lily.lottery.common.Result;
 public abstract class AbstractState {
 
     /**
-     * 提审
+     * 抽象父类中允许子类使用活动仓储层方法
+     * 改变状态时，需要更新数据库中的状态
+     */
+    @Resource
+    protected IActivityRepositoty activityRepositoty;
+
+    /**
+     * 审核提交
      * @param activityId    活动ID
      * @param currentStatus 当前状态
      * @return              审核结果
@@ -51,7 +61,7 @@ public abstract class AbstractState {
     public abstract Result close(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus);
 
     /**
-     * 开启
+     * 审核开启
      * @param activityId    活动ID
      * @param currentStatus 当前状态
      * @return              审核结果

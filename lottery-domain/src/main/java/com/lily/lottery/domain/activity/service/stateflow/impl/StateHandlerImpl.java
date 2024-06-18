@@ -2,8 +2,11 @@ package com.lily.lottery.domain.activity.service.stateflow.impl;
 
 import com.lily.lottery.common.ActivityConstants;
 import com.lily.lottery.common.Result;
+import com.lily.lottery.domain.activity.repository.IActivityRepositoty;
 import com.lily.lottery.domain.activity.service.stateflow.IStateHandler;
 import com.lily.lottery.domain.activity.service.stateflow.StateConfig;
+
+import javax.annotation.Resource;
 
 /**
  * Created by lily via on 2024/6/19 0:02
@@ -22,7 +25,7 @@ public class StateHandlerImpl extends StateConfig implements IStateHandler {
      */
     @Override
     public Result arraignment(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return null;
+        return stateMap.get(currentStatus).arraignment(activityId, currentStatus);
     }
 
     /**
@@ -33,7 +36,7 @@ public class StateHandlerImpl extends StateConfig implements IStateHandler {
      */
     @Override
     public Result checkPass(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return null;
+        return stateMap.get(currentStatus).checkPass(activityId, currentStatus);
     }
 
     /**
@@ -44,7 +47,7 @@ public class StateHandlerImpl extends StateConfig implements IStateHandler {
      */
     @Override
     public Result checkRefuse(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return null;
+        return stateMap.get(currentStatus).checkRefuse(activityId, currentStatus);
     }
 
     /**
@@ -55,7 +58,7 @@ public class StateHandlerImpl extends StateConfig implements IStateHandler {
      */
     @Override
     public Result checkRevoke(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return null;
+        return stateMap.get(currentStatus).checkRevoke(activityId, currentStatus);
     }
 
     /**
@@ -66,7 +69,7 @@ public class StateHandlerImpl extends StateConfig implements IStateHandler {
      */
     @Override
     public Result close(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return null;
+        return stateMap.get(currentStatus).close(activityId, currentStatus);
     }
 
     /**
@@ -77,7 +80,7 @@ public class StateHandlerImpl extends StateConfig implements IStateHandler {
      */
     @Override
     public Result open(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return null;
+        return stateMap.get(currentStatus).open(activityId, currentStatus);
     }
 
     /**
@@ -88,6 +91,6 @@ public class StateHandlerImpl extends StateConfig implements IStateHandler {
      */
     @Override
     public Result doing(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return null;
+        return stateMap.get(currentStatus).doing(activityId, currentStatus);
     }
 }

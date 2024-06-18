@@ -7,40 +7,43 @@ import com.lily.lottery.domain.activity.service.stateflow.AbstractState;
 
 /**
  * Created by lily via on 2024/6/18 23:42
+ * 关闭状态
+ * 当前状态为关闭状态，仅可以开启
  */
 public class CloseState extends AbstractState {
     @Override
     public Result arraignment(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "待审核状态不可重复提审");
+        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "活动关闭不可提审");
     }
 
     @Override
     public Result checkPass(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return Result.buildResult(Constants.ResponseCode.SUCCESS, "活动审核通过完成");
+        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "活动关闭不可审核通过");
     }
 
     @Override
     public Result checkRefuse(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return Result.buildResult(Constants.ResponseCode.SUCCESS, "活动审核拒绝完成");
+        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "活动关闭不可审核拒绝");
     }
 
     @Override
     public Result checkRevoke(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return Result.buildResult(Constants.ResponseCode.SUCCESS, "活动审核撤销回编辑中");
+        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "活动关闭不可撤销审核");
     }
 
     @Override
     public Result close(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return Result.buildResult(Constants.ResponseCode.SUCCESS, "活动审核关闭成功");
+        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "活动关闭不可重复关闭");
     }
 
     @Override
     public Result open(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "活动非关闭状态不可开启");
+        boolean isSuccess = activityRepositoty.alterStatus(activityId, currentStatus, ActivityConstants.ActivityState.OPEN);
+        return isSuccess?Result.buildResult(Constants.ResponseCode.SUCCESS, "活动开启完成"): Result.buildErrorResult("活动开启失败");
     }
 
     @Override
     public Result doing(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "待审核活动不可执行活动中操作");
+        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "活动关闭不可变更活动中");
     }
 }

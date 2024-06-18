@@ -7,31 +7,36 @@ import com.lily.lottery.domain.activity.service.stateflow.AbstractState;
 
 /**
  * Created by lily via on 2024/6/18 23:42
+ * 审核通过状态
+ *
  */
 public class PassState extends AbstractState {
+
     @Override
     public Result arraignment(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "待审核状态不可重复提审");
+        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "审核已通过不可重复提审");
     }
 
     @Override
     public Result checkPass(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return Result.buildResult(Constants.ResponseCode.SUCCESS, "活动审核通过完成");
+        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "审核已通过不可重复提审");
     }
 
     @Override
     public Result checkRefuse(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return Result.buildResult(Constants.ResponseCode.SUCCESS, "活动审核拒绝完成");
+        boolean isSuccess = activityRepositoty.alterStatus(activityId, currentStatus, ActivityConstants.ActivityState.REFUSE);
+        return isSuccess ? Result.buildResult(Constants.ResponseCode.SUCCESS, "审核拒绝完成"): Result.buildErrorResult("活动状态变更失败");
     }
 
     @Override
     public Result checkRevoke(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return Result.buildResult(Constants.ResponseCode.SUCCESS, "活动审核撤销回编辑中");
+        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "审核通过不可撤销(可先拒绝审核)");
     }
 
     @Override
     public Result close(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return Result.buildResult(Constants.ResponseCode.SUCCESS, "活动审核关闭成功");
+        boolean isSuccess = activityRepositoty.alterStatus(activityId, currentStatus, ActivityConstants.ActivityState.CLOSE);
+        return isSuccess ? Result.buildResult(Constants.ResponseCode.SUCCESS, "活动审核关闭完成"):Result.buildErrorResult("活动状态变更失败");
     }
 
     @Override
@@ -41,7 +46,7 @@ public class PassState extends AbstractState {
 
     @Override
     public Result doing(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {
-        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "待审核活动不可执行活动中操作");
+        boolean isSuccess = activityRepositoty.alterStatus(activityId, currentStatus, ActivityConstants.ActivityState.DOING);
+        return isSuccess?Result.buildResult(Constants.ResponseCode.SUCCESS, "变更活动中完成"):Result.buildErrorResult("活动状态变更失败");
     }
-
 }

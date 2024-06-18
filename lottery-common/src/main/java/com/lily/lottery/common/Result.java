@@ -12,14 +12,26 @@ public class Result implements Serializable {
     private String info;
 
 
-    /**
-     * 参数为String类型
-     * @param code
-     * @param info
-     */
+
     public Result(String code, String info) {
         this.code = code;
         this.info = info;
+    }
+
+    public Result(String info) {
+        this.code = code;
+        this.info = info;
+    }
+
+    public Result() {
+    }
+
+
+    /**
+     * 参数为String类型
+     */
+    public static Result buildResult(String info) {
+        return new Result(info);
     }
 
     public static Result buildResult(String code, String info) {
@@ -28,9 +40,6 @@ public class Result implements Serializable {
 
     /**
      * 参数为枚举类型
-     * @param code
-     * @param info
-     * @return
      */
     public static Result buildResult(Constants.ResponseCode code, String info) {
         return new Result(code.getCode(), info);
@@ -41,16 +50,20 @@ public class Result implements Serializable {
     }
 
     /**
-     * 无参构造
+     * 构建成功返回结果
      */
-    public Result() {
-    }
-
     public static Result buildSuccessResult() {
         return new Result(Constants.ResponseCode.SUCCESS.getCode(), Constants.ResponseCode.SUCCESS.getInfo());
     }
 
+    /**
+     * 构建失败返回结果
+     */
     public static Result buildErrorResult() {
         return new Result(Constants.ResponseCode.UN_ERROR.getCode(), Constants.ResponseCode.UN_ERROR.getInfo());
+    }
+
+    public static Result buildErrorResult(String info) {
+        return new Result(Constants.ResponseCode.UN_ERROR.getCode(), info);
     }
 }
