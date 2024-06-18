@@ -4,12 +4,14 @@ import com.lily.lottery.common.ActivityConstants;
 import com.lily.lottery.common.Constants;
 import com.lily.lottery.common.Result;
 import com.lily.lottery.domain.activity.service.stateflow.AbstractState;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by lily via on 2024/6/18 23:42
  * 活动拒绝状态
  * 当前状态为拒绝状态，仅可以撤回申请，关闭
  */
+@Component
 public class RefuseState extends AbstractState {
 
     @Override

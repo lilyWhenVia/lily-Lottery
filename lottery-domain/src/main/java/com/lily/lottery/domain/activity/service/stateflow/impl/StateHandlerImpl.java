@@ -5,6 +5,7 @@ import com.lily.lottery.common.Result;
 import com.lily.lottery.domain.activity.repository.IActivityRepositoty;
 import com.lily.lottery.domain.activity.service.stateflow.IStateHandler;
 import com.lily.lottery.domain.activity.service.stateflow.StateConfig;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
  *---
  * 由对应的状态实例中定义好的方法来决定是否可以进行状态的切换
  */
+@Service
 public class StateHandlerImpl extends StateConfig implements IStateHandler {
 
     /**

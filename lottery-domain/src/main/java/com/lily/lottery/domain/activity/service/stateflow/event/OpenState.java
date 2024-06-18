@@ -4,12 +4,14 @@ import com.lily.lottery.common.ActivityConstants;
 import com.lily.lottery.common.Constants;
 import com.lily.lottery.common.Result;
 import com.lily.lottery.domain.activity.service.stateflow.AbstractState;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by lily via on 2024/6/18 23:42
  * 活动开启申请
  * 当前状态为可开启状态，仅可以关闭和变为活动进行中
  */
+@Component
 public class OpenState extends AbstractState {
     @Override
     public Result arraignment(Long activityId, Enum<ActivityConstants.ActivityState> currentStatus) {

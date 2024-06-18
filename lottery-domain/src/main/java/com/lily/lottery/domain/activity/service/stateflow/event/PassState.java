@@ -4,12 +4,15 @@ import com.lily.lottery.common.ActivityConstants;
 import com.lily.lottery.common.Constants;
 import com.lily.lottery.common.Result;
 import com.lily.lottery.domain.activity.service.stateflow.AbstractState;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by lily via on 2024/6/18 23:42
  * 审核通过状态
- *
+ * 当前状态为审核通过状态，仅可以审核拒绝，关闭
+ * 以及开启活动
  */
+@Component
 public class PassState extends AbstractState {
 
     @Override

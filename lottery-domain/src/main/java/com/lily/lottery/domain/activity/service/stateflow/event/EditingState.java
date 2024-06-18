@@ -4,12 +4,14 @@ import com.lily.lottery.common.ActivityConstants;
 import com.lily.lottery.common.Constants;
 import com.lily.lottery.common.Result;
 import com.lily.lottery.domain.activity.service.stateflow.AbstractState;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by lily via on 2024/6/18 23:42
  * 活动编辑中
  * 当前状态为编辑中状态，仅可以提交审核，关闭当前状态
  */
+@Component
 public class EditingState extends AbstractState {
     @Override
     public Result arraignment(Long activityId, Enum<ActivityConstants.ActivityState> currentState) {

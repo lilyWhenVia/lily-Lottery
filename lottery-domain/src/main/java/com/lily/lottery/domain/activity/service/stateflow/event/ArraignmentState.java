@@ -5,6 +5,7 @@ import com.lily.lottery.common.Constants;
 import com.lily.lottery.common.Result;
 import com.lily.lottery.domain.activity.repository.IActivityRepositoty;
 import com.lily.lottery.domain.activity.service.stateflow.AbstractState;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
@@ -18,6 +19,7 @@ import javax.annotation.Resource;
  * 当前状态为审核状态，不可以执行活动中操作
  * @author lily
  */
+@Component
 public class ArraignmentState extends AbstractState {
 
 

@@ -4,6 +4,7 @@ import com.lily.lottery.common.ActivityConstants;
 import com.lily.lottery.common.Constants;
 import com.lily.lottery.common.Result;
 import com.lily.lottery.domain.activity.service.stateflow.AbstractState;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by lily via on 2024/6/18 23:42
@@ -11,6 +12,7 @@ import com.lily.lottery.domain.activity.service.stateflow.AbstractState;
  * 当前状态为进行中状态，仅可以关闭
  * @author lily
  */
+@Component
 public class DoingState extends AbstractState {
 
     @Override
