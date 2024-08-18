@@ -48,19 +48,19 @@ public class DefaultRandomDrawAlgorithm extends BaseAlgorithm {
         for (AwardRateInfo awardRateInfo : awardRateInfos) {
             // 获取奖品ID
             String awardId = awardRateInfo.getAwardId();
-            // 如果奖品还没有被抽完则加入差异奖品列表
+            // 如果奖品还没有被抽完则加入余下的奖品列表
             if (!excludeAwardIds.contains(awardId)) {
                 differenceAwardRateList.add(awardRateInfo);
                 differenceDenominator = differenceDenominator.add(awardRateInfo.getAwardRate());
             }
         }
-        // 如果差异奖品列表为空则返回空字符串
+        // 如果余下的奖品列表为空则返回空字符串
         if (differenceAwardRateList.isEmpty()) return "";
-        // 如果差异奖品列表只有一个则返回该奖品ID
+        // 如果余下的奖品列表只有一个则返回该奖品ID
         if (differenceAwardRateList.size() == 1) return differenceAwardRateList.get(0).getAwardId();
         /**
          * 新建规则重新分配概率抽奖
-         * 从差异奖品列表中随机抽取奖品
+         * 从余下的奖品列表中随机抽取奖品
          */
         // 获取随机概率值为0-100的随机数
         SecureRandom secureRandom = new SecureRandom();
